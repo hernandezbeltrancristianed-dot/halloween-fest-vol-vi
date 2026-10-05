@@ -1304,6 +1304,232 @@ background-repeat: no-repeat;
 }
 
 /* =========================
+   ORGANIZADORES
+========================= */
+
+.organizadores{
+  position:relative;
+  padding:120px 20px 140px;
+  text-align:center;
+
+  background:
+    radial-gradient(
+      circle at 50% 25%,
+      rgba(150,0,0,.18),
+      transparent 38%
+    ),
+    #050505;
+
+  overflow:hidden;
+}
+
+
+/* TEXTO SUPERIOR */
+
+.org-mini{
+  margin-bottom:20px;
+
+  color:#777;
+
+  font-family:Arial,sans-serif;
+  font-size:.6rem;
+  font-weight:700;
+
+  letter-spacing:4px;
+}
+
+
+/* INTRODUCCIÓN */
+
+.org-intro{
+  max-width:500px;
+
+  margin:
+    0 auto 55px;
+
+  color:#aaa;
+
+  font-family:Arial,sans-serif;
+  font-size:.9rem;
+
+  line-height:1.7;
+}
+
+
+/* CONTENEDOR */
+
+.org-grid{
+  width:100%;
+  max-width:750px;
+
+  margin:auto;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:20px;
+}
+
+
+/* TARJETAS */
+
+.org-card{
+  position:relative;
+
+  min-height:170px;
+
+  display:flex;
+  flex-direction:column;
+
+  justify-content:center;
+  align-items:flex-start;
+
+  padding:28px 25px;
+
+  background:#ededed;
+  color:#080808;
+
+  text-align:left;
+  text-decoration:none;
+
+  transform:rotate(-1deg);
+
+  clip-path:polygon(
+    2% 5%,
+    18% 1%,
+    36% 4%,
+    53% 0,
+    71% 4%,
+    99% 2%,
+    97% 96%,
+    78% 98%,
+    60% 95%,
+    42% 100%,
+    23% 96%,
+    2% 99%
+  );
+
+  transition:
+    transform .25s ease,
+    filter .25s ease;
+}
+
+
+/* TARJETAS ALTERNADAS */
+
+.org-card:nth-child(even){
+  background:#111;
+  color:#eee;
+
+  transform:rotate(1deg);
+
+  border:
+    1px solid
+    rgba(255,255,255,.10);
+}
+
+
+/* NOMBRE */
+
+.org-nombre{
+  font-family:'Anton',sans-serif;
+
+  font-size:1.6rem;
+
+  letter-spacing:1px;
+}
+
+
+/* USUARIO */
+
+.org-user{
+  margin-top:6px;
+
+  color:#e71920;
+
+  font-family:'Special Elite',serif;
+
+  font-size:.9rem;
+}
+
+
+/* INSTAGRAM */
+
+.org-link{
+  margin-top:22px;
+
+  font-family:Arial,sans-serif;
+
+  font-size:.65rem;
+  font-weight:900;
+
+  letter-spacing:2px;
+}
+
+
+/* HOVER */
+
+.org-card:hover{
+  transform:
+    rotate(0)
+    scale(1.04);
+
+  filter:
+    brightness(1.08);
+}
+
+
+/* AVISO */
+
+.org-aviso{
+  max-width:500px;
+
+  margin:
+    55px auto 0;
+
+  color:#555;
+
+  font-family:Arial,sans-serif;
+
+  font-size:.55rem;
+
+  letter-spacing:2px;
+
+  line-height:1.7;
+}
+
+
+/* =========================
+   ORGANIZADORES - CELULAR
+========================= */
+
+@media(max-width:600px){
+
+  .organizadores{
+    padding:
+      100px 18px
+      120px;
+  }
+
+  .org-grid{
+    grid-template-columns:1fr;
+
+    gap:16px;
+  }
+
+  .org-card{
+    min-height:145px;
+
+    padding:
+      25px 23px;
+  }
+
+}
+
+  
+/* =========================
    FOOTER
 ========================= */
 
@@ -1742,6 +1968,142 @@ footer p{
   </div>
 
 </section>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     ORGANIZADORES
+========================= -->
+
+<section class="organizadores">
+
+  <div class="org-mini">
+    BOLETOS · INFORMACIÓN · CONTACTO
+  </div>
+
+  <h2 class="titulo-papel">
+    CONSIGUE TU ACCESO
+  </h2>
+
+  <p class="org-intro">
+    Contacta a cualquiera de nuestros organizadores
+    para conseguir tu boleto.
+  </p>
+
+  <div class="org-grid">
+
+    <!-- BRANDON -->
+
+    <a
+      href="https://www.instagram.com/brandon_uff/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="org-card"
+    >
+
+      <span class="org-nombre">
+        Brandon Alexis
+      </span>
+
+      <span class="org-user">
+        @brandon_uff
+      </span>
+
+      <span class="org-link">
+        INSTAGRAM →
+      </span>
+
+    </a>
+
+
+    <!-- CRISTIAN -->
+
+    <a
+      href="https://www.instagram.com/itscrisi.edd/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="org-card"
+    >
+
+      <span class="org-nombre">
+        Cristian Hernández
+      </span>
+
+      <span class="org-user">
+        @itscrisi.edd
+      </span>
+
+      <span class="org-link">
+        INSTAGRAM →
+      </span>
+
+    </a>
+
+
+    <!-- ALAN -->
+
+    <a
+      href="https://www.instagram.com/alan_escobar15/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="org-card"
+    >
+
+      <span class="org-nombre">
+        Alan Escobar
+      </span>
+
+      <span class="org-user">
+        @alan_escobar15
+      </span>
+
+      <span class="org-link">
+        INSTAGRAM →
+      </span>
+
+    </a>
+
+
+    <!-- ALEJANDRO -->
+
+    <a
+      href="https://www.instagram.com/alejandro_pacheco07/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="org-card"
+    >
+
+      <span class="org-nombre">
+        Alejandro Pa
+      </span>
+
+      <span class="org-user">
+        @alejandro_pacheco07
+      </span>
+
+      <span class="org-link">
+        INSTAGRAM →
+      </span>
+
+    </a>
+
+  </div>
+
+
+  <p class="org-aviso">
+    LOS BOLETOS SON PERSONALES Y ESTÁN SUJETOS A DISPONIBILIDAD.
+  </p>
+
+</section>
+
+
+<!-- FINAL -->
+
+<footer>
+  
 <!-- FINAL -->
 
 <footer>
