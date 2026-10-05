@@ -1527,7 +1527,433 @@ background-repeat: no-repeat;
   }
 
 }
+/* =========================
+   REGLAMENTO
+========================= */
 
+.reglamento-section{
+  position:relative;
+
+  padding:
+    120px 20px
+    140px;
+
+  text-align:center;
+
+  background:
+    radial-gradient(
+      circle at 50% 40%,
+      rgba(150,0,0,.15),
+      transparent 40%
+    ),
+    #050505;
+}
+
+
+/* TEXTO SUPERIOR */
+
+.reg-mini{
+  margin-bottom:20px;
+
+  color:#777;
+
+  font-family:Arial,sans-serif;
+
+  font-size:.6rem;
+  font-weight:700;
+
+  letter-spacing:4px;
+}
+
+
+/* INTRO */
+
+.reg-intro{
+  max-width:500px;
+
+  margin:
+    30px auto 35px;
+
+  color:#aaa;
+
+  font-family:Arial,sans-serif;
+
+  font-size:.9rem;
+
+  line-height:1.7;
+}
+
+
+/* BOTÓN VER REGLAMENTO */
+
+.btn-reglamento{
+  position:relative;
+
+  border:0;
+
+  padding:
+    18px 35px;
+
+  background:#ed1c24;
+
+  color:#fff;
+
+  font-family:'Anton',sans-serif;
+
+  font-size:1.1rem;
+
+  letter-spacing:2px;
+
+  cursor:pointer;
+
+  transform:rotate(-2deg);
+
+  clip-path:polygon(
+    3% 7%,
+    96% 0,
+    100% 15%,
+    97% 88%,
+    90% 96%,
+    8% 100%,
+    0 85%,
+    2% 20%
+  );
+
+  transition:
+    transform .25s ease,
+    filter .25s ease;
+}
+
+
+.btn-reglamento:hover{
+  transform:
+    rotate(1deg)
+    scale(1.06);
+
+  filter:brightness(1.15);
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal-reglamento{
+  position:fixed;
+
+  inset:0;
+
+  z-index:9999;
+
+  display:none;
+
+  align-items:center;
+  justify-content:center;
+
+  padding:20px;
+
+  background:
+    rgba(0,0,0,.92);
+
+  backdrop-filter:
+    blur(8px);
+
+  overflow-y:auto;
+}
+
+
+/* CUANDO ESTÁ ABIERTO */
+
+.modal-reglamento.activo{
+  display:flex;
+}
+
+
+/* DOCUMENTO */
+
+.modal-contenido{
+  position:relative;
+
+  width:min(
+    100%,
+    720px
+  );
+
+  max-height:
+    calc(100svh - 40px);
+
+  overflow-y:auto;
+
+  margin:auto;
+
+  padding:
+    55px 45px
+    45px;
+
+  background:#ededed;
+
+  color:#111;
+
+  text-align:left;
+
+  box-shadow:
+    0 25px 80px
+    rgba(0,0,0,.8);
+
+  clip-path:polygon(
+    1% 1%,
+    15% 0,
+    28% 1%,
+    42% 0,
+    57% 1%,
+    72% 0,
+    86% 1%,
+    99% 0,
+    100% 18%,
+    99% 36%,
+    100% 55%,
+    99% 74%,
+    100% 100%,
+    82% 99%,
+    65% 100%,
+    47% 99%,
+    28% 100%,
+    12% 99%,
+    0 100%,
+    1% 80%,
+    0 61%,
+    1% 42%,
+    0 21%
+  );
+}
+
+
+/* X PARA CERRAR */
+
+.cerrar-reglamento{
+  position:absolute;
+
+  top:18px;
+  right:22px;
+
+  width:40px;
+  height:40px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  border:0;
+
+  background:#111;
+
+  color:#fff;
+
+  font-family:Arial,sans-serif;
+
+  font-size:1.8rem;
+
+  line-height:1;
+
+  cursor:pointer;
+}
+
+
+/* ETIQUETA SUPERIOR */
+
+.modal-etiqueta{
+  display:inline-block;
+
+  margin-bottom:22px;
+
+  padding:
+    7px 12px;
+
+  background:#ed1c24;
+
+  color:#fff;
+
+  font-family:'Anton',sans-serif;
+
+  font-size:.7rem;
+
+  letter-spacing:2px;
+
+  transform:rotate(-2deg);
+}
+
+
+/* TÍTULO */
+
+.modal-contenido h2{
+  max-width:550px;
+
+  color:#111;
+
+  font-family:'Anton',sans-serif;
+
+  font-size:
+    clamp(
+      2rem,
+      8vw,
+      3.2rem
+    );
+
+  line-height:1;
+
+  letter-spacing:1px;
+}
+
+
+/* INTRO DEL REGLAMENTO */
+
+.modal-intro{
+  max-width:580px;
+
+  margin:
+    20px 0
+    35px;
+
+  color:#555;
+
+  font-family:Arial,sans-serif;
+
+  font-size:.85rem;
+
+  line-height:1.6;
+}
+
+
+/* LISTA */
+
+.lista-reglamento{
+  padding-left:0;
+
+  list-style:none;
+
+  counter-reset:reglas;
+}
+
+
+.lista-reglamento li{
+  position:relative;
+
+  counter-increment:reglas;
+
+  padding:
+    22px 5px
+    22px 55px;
+
+  border-top:
+    1px solid #ccc;
+
+  font-family:Arial,sans-serif;
+
+  font-size:.9rem;
+
+  line-height:1.65;
+
+  color:#222;
+}
+
+
+/* NÚMEROS GRANDES */
+
+.lista-reglamento li::before{
+  content:
+    counter(reglas, decimal-leading-zero);
+
+  position:absolute;
+
+  left:5px;
+  top:18px;
+
+  color:#ed1c24;
+
+  font-family:'Anton',sans-serif;
+
+  font-size:1.6rem;
+}
+
+
+.lista-reglamento strong{
+  color:#000;
+}
+
+
+/* BOTÓN ENTENDIDO */
+
+.btn-cerrar-modal{
+  display:block;
+
+  width:100%;
+
+  margin-top:35px;
+
+  padding:
+    18px 20px;
+
+  border:0;
+
+  background:#ed1c24;
+
+  color:#fff;
+
+  font-family:'Anton',sans-serif;
+
+  font-size:1.1rem;
+
+  letter-spacing:2px;
+
+  cursor:pointer;
+}
+
+
+/* =========================
+   REGLAMENTO - CELULAR
+========================= */
+
+@media(max-width:600px){
+
+  .reglamento-section{
+    padding:
+      100px 18px
+      120px;
+  }
+
+  .modal-reglamento{
+    padding:12px;
+  }
+
+  .modal-contenido{
+    max-height:
+      calc(100svh - 24px);
+
+    padding:
+      55px 22px
+      30px;
+  }
+
+  .modal-contenido h2{
+    font-size:2.2rem;
+  }
+
+  .lista-reglamento li{
+    padding:
+      20px 0
+      20px 45px;
+
+    font-size:.84rem;
+  }
+
+  .lista-reglamento li::before{
+    left:0;
+
+    font-size:1.4rem;
+  }
+
+}
   
 /* =========================
    FOOTER
@@ -2099,12 +2525,157 @@ footer p{
 
 </section>
 
-
-<!-- FINAL -->
-
-<footer>
   
-<!-- FINAL -->
+<!-- =========================
+     REGLAMENTO
+========================= -->
+
+<section class="reglamento-section">
+
+  <div class="reg-mini">
+    ANTES DE ENTRAR
+  </div>
+
+  <h2 class="titulo-papel">
+    REGLAMENTO
+  </h2>
+
+  <p class="reg-intro">
+    Al ingresar al evento aceptas las reglas de acceso,
+    seguridad y convivencia.
+  </p>
+
+  <button
+    class="btn-reglamento"
+    id="abrirReglamento"
+    type="button"
+  >
+    VER REGLAMENTO
+  </button>
+
+</section>
+
+
+<!-- =========================
+     MODAL REGLAMENTO
+========================= -->
+
+<div
+  class="modal-reglamento"
+  id="modalReglamento"
+  aria-hidden="true"
+>
+
+  <div class="modal-contenido">
+
+    <button
+      class="cerrar-reglamento"
+      id="cerrarReglamento"
+      type="button"
+      aria-label="Cerrar reglamento"
+    >
+      ×
+    </button>
+
+
+    <div class="modal-etiqueta">
+      HALLOWEEN FEST VOL. VI
+    </div>
+
+
+    <h2>
+      REGLAMENTO DEL EVENTO
+    </h2>
+
+
+    <p class="modal-intro">
+      Con el objetivo de mantener un ambiente seguro y agradable
+      para todos, al ingresar al evento aceptas las siguientes reglas:
+    </p>
+
+
+    <ol class="lista-reglamento">
+
+      <li>
+        Prohibido ingresar con botellas o recipientes de vidrio.
+      </li>
+
+      <li>
+        <strong>Cero tolerancia al mal comportamiento.</strong>
+        Agresiones físicas o verbales, amenazas, acoso, peleas
+        o conductas que pongan en riesgo a otras personas serán
+        motivo de expulsión inmediata.
+      </li>
+
+      <li>
+        Queda prohibido el ingreso, consumo o distribución de
+        sustancias ilegales dentro del evento.
+      </li>
+
+      <li>
+        No se permite el ingreso con armas, objetos punzocortantes
+        o cualquier objeto que pueda representar un riesgo para
+        los asistentes.
+      </li>
+
+      <li>
+        <strong>El acceso es personal.</strong>
+        Cada boleto o código QR será válido únicamente para su titular.
+      </li>
+
+      <li>
+        El acceso al evento estará disponible únicamente hasta las
+        <strong>11:30 p. m.</strong>
+        Después de este horario no se permitirá el ingreso.
+      </li>
+
+      <li>
+        <strong>Reingreso:</strong>
+        hasta las <strong>12:00 a. m.</strong> podrás salir y volver
+        a ingresar. Después de las <strong>12:00 a. m.</strong>,
+        cualquier salida será definitiva y no se permitirá el reingreso.
+      </li>
+
+      <li>
+        <strong>Respeta las instalaciones.</strong>
+        Cualquier daño intencional al mobiliario, decoración, equipo
+        o instalaciones será responsabilidad de quien lo ocasione.
+      </li>
+
+      <li>
+        <strong>Mantén limpio el espacio.</strong>
+        Utiliza los contenedores de basura disponibles.
+      </li>
+
+      <li>
+        Respeta a los demás asistentes, organizadores, seguridad
+        y personal del evento. No se tolerará ningún tipo de acoso
+        o conducta inapropiada.
+      </li>
+
+      <li>
+        La expulsión por incumplimiento del reglamento
+        <strong>no dará derecho a reembolso del acceso.</strong>
+      </li>
+
+    </ol>
+
+
+    <button
+  class="btn-cerrar-modal"
+  id="cerrarReglamentoAbajo"
+  type="button"
+>
+  CERRAR REGLAMENTO
+</button>
+  </div>
+
+</div>
+
+
+<!-- =========================
+     FINAL
+========================= -->
 
 <footer>
 
@@ -2113,7 +2684,11 @@ footer p{
   </h2>
 
   <p>
-    VOL. VI · 24.10.26
+    VOL. VI
+  </p>
+
+  <p>
+    24 · OCT · 26
   </p>
 
 </footer>
@@ -2277,6 +2852,97 @@ elementos.forEach(
     observer.observe(elemento)
 );
 
+// =========================
+// REGLAMENTO
+// =========================
+
+const modalReglamento =
+  document.getElementById("modalReglamento");
+
+const abrirReglamento =
+  document.getElementById("abrirReglamento");
+
+const cerrarReglamento =
+  document.getElementById("cerrarReglamento");
+
+const cerrarReglamentoAbajo =
+  document.getElementById("cerrarReglamentoAbajo");
+
+
+function abrirModalReglamento(){
+
+  modalReglamento.classList.add("activo");
+
+  modalReglamento.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+  document.body.style.overflow = "hidden";
+
+}
+
+
+function cerrarModalReglamento(){
+
+  modalReglamento.classList.remove("activo");
+
+  modalReglamento.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  document.body.style.overflow = "";
+
+}
+
+
+abrirReglamento.addEventListener(
+  "click",
+  abrirModalReglamento
+);
+
+
+cerrarReglamento.addEventListener(
+  "click",
+  cerrarModalReglamento
+);
+
+
+cerrarReglamentoAbajo.addEventListener(
+  "click",
+  cerrarModalReglamento
+);
+
+
+// CERRAR TOCANDO FUERA DEL REGLAMENTO
+
+modalReglamento.addEventListener(
+  "click",
+  function(e){
+
+    if(e.target === modalReglamento){
+      cerrarModalReglamento();
+    }
+
+  }
+);
+
+
+// CERRAR CON ESC
+
+document.addEventListener(
+  "keydown",
+  function(e){
+
+    if(e.key === "Escape"){
+      cerrarModalReglamento();
+    }
+
+  }
+);
+
+  
 </script>
 
 
