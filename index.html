@@ -2319,6 +2319,268 @@ footer::after{
 
 }
 
+}
+
+
+/* =========================================
+   MOBILE UX 2.0
+   Optimización general iPhone / Android
+========================================= */
+
+@media(max-width:600px){
+
+  html{
+    -webkit-text-size-adjust:100%;
+  }
+
+  body{
+    width:100%;
+    overflow-x:hidden;
+  }
+
+  .hero{
+    min-height:100svh;
+
+    padding-top:
+      max(30px, env(safe-area-inset-top));
+
+    padding-right:16px;
+
+    padding-bottom:
+      max(75px, env(safe-area-inset-bottom));
+
+    padding-left:16px;
+
+    background-position:center center;
+  }
+
+  .entrar{
+    min-height:52px;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:16px 38px;
+
+    -webkit-tap-highlight-color:transparent;
+    touch-action:manipulation;
+  }
+
+  .entrar:active{
+    transform:
+      rotate(-2deg)
+      scale(.96);
+  }
+
+  .btn-reglamento{
+    min-height:52px;
+
+    -webkit-tap-highlight-color:transparent;
+    touch-action:manipulation;
+  }
+
+  .org-card{
+    min-height:150px;
+
+    -webkit-tap-highlight-color:transparent;
+    touch-action:manipulation;
+  }
+
+  .etiqueta{
+    font-size:.6rem;
+  }
+
+  .org-mini,
+  .reg-mini{
+    font-size:.65rem;
+  }
+
+  .org-aviso{
+    font-size:.62rem;
+  }
+
+  footer{
+    padding-bottom:
+      max(80px, env(safe-area-inset-bottom));
+  }
+
+}
+
+/* =========================================
+   PORTADA MOBILE 2.0
+========================================= */
+
+@media(max-width:600px){
+
+  .hero-contenido{
+    width:100%;
+    max-width:420px;
+    margin:auto;
+  }
+
+  .hero h1{
+    width:100%;
+    margin:0 auto;
+
+    font-size:
+      clamp(
+        3.8rem,
+        18vw,
+        5.6rem
+      );
+
+    line-height:.82;
+  }
+
+  .hero .fest{
+    display:block;
+
+    margin-top:8px;
+
+    font-size:
+      clamp(
+        4.6rem,
+        22vw,
+        6.5rem
+      );
+
+    line-height:.85;
+  }
+
+  .hero .volumen{
+    margin-top:18px;
+  }
+
+  .hero .fecha{
+    margin-top:18px;
+  }
+
+  .hero .entrar{
+    margin-top:30px;
+  }
+
+}
+
+ /* =========================================
+   PORTADA MOBILE 2.0
+========================================= */
+
+@media(max-width:600px){
+
+  .hero{
+    min-height:100svh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    padding:
+      max(35px, env(safe-area-inset-top))
+      16px
+      max(45px, env(safe-area-inset-bottom));
+
+    overflow:hidden;
+  }
+
+
+  .halloween{
+    width:100%;
+
+    margin:0;
+
+    font-size:
+      clamp(
+        3.5rem,
+        17vw,
+        5rem
+      );
+
+    line-height:.88;
+
+    text-align:center;
+
+    transform:none;
+  }
+
+
+  .fest{
+    margin-top:6px;
+
+    font-size:
+      clamp(
+        4.2rem,
+        21vw,
+        6rem
+      );
+
+    line-height:.9;
+  }
+
+
+  .vol{
+    margin-top:18px;
+
+    font-size:.75rem;
+    letter-spacing:5px;
+  }
+
+
+  .fecha{
+    margin-top:15px;
+
+    font-size:1rem;
+    letter-spacing:3px;
+  }
+
+
+  .hora{
+    margin-top:8px;
+
+    font-size:.68rem;
+    letter-spacing:2px;
+  }
+
+
+  .mensaje{
+    margin-top:24px;
+
+    font-size:.65rem;
+    letter-spacing:3px;
+  }
+
+
+  .entrar{
+    margin-top:22px;
+
+    min-width:160px;
+    min-height:52px;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:14px 32px;
+  }
+
+
+  .flecha{
+    margin-top:22px;
+
+    font-size:1.4rem;
+  }
+
+} 
+
+</style>
+
+
+</head>
+
+<body>
+
+  
 </style>
 </head>
 
