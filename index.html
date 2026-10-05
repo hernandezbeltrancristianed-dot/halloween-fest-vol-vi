@@ -1075,80 +1075,233 @@ background-repeat: no-repeat;
 ========================= */
 
 .experiencia{
+  position:relative;
 
-  max-width:800px;
-
+  max-width:900px;
   margin:auto;
 
   padding:
-    100px 25px;
+    120px 22px 140px;
 
+  overflow:hidden;
 }
 
 
+/* TÍTULO */
+
 .experiencia h2{
+  width:max-content;
+  max-width:90%;
+
+  margin:
+    0 auto 75px;
+
+  padding:
+    13px 32px;
+
+  background:#ededed;
+  color:#080808;
+
+  font-family:'Special Elite',serif;
+
+  font-size:
+    clamp(
+      2rem,
+      8vw,
+      3.5rem
+    );
 
   text-align:center;
 
-  font-size:2.6rem;
+  transform:rotate(-2deg);
 
-  margin-bottom:50px;
+  clip-path:polygon(
+    2% 8%,
+    15% 2%,
+    30% 6%,
+    45% 0,
+    60% 5%,
+    77% 1%,
+    99% 7%,
+    97% 92%,
+    82% 97%,
+    64% 94%,
+    48% 100%,
+    30% 95%,
+    13% 99%,
+    1% 91%
+  );
 
+  box-shadow:
+    8px 8px 0
+    rgba(0,0,0,.5);
 }
 
 
+/* CADA ELEMENTO */
+
 .item{
+  position:relative;
+
+  max-width:650px;
+
+  margin:
+    0 auto 45px;
 
   padding:
-    30px 5px;
+    35px 30px;
 
-  border-bottom:
-    1px solid #292929;
+  background:#0d0d0d;
+
+  border:
+    1px solid
+    rgba(255,255,255,.08);
 
   opacity:0;
 
   transform:
-    translateY(35px);
+    translateY(45px)
+    rotate(-1deg);
 
   transition:
-    .7s ease;
+    opacity .7s ease,
+    transform .7s ease;
 
+  box-shadow:
+    0 20px 45px
+    rgba(0,0,0,.35);
 }
 
 
-.item.visible{
+/* DIFERENTES ÁNGULOS */
 
+.item:nth-of-type(2){
+  transform:
+    translateY(45px)
+    rotate(1.5deg);
+}
+
+.item:nth-of-type(3){
+  transform:
+    translateY(45px)
+    rotate(-2deg);
+}
+
+
+/* CUANDO APARECEN */
+
+.item.visible{
   opacity:1;
 
   transform:
-    translateY(0);
+    translateY(0)
+    rotate(-1deg);
+}
 
+.item:nth-of-type(2).visible{
+  transform:
+    translateY(0)
+    rotate(1.5deg);
+}
+
+.item:nth-of-type(3).visible{
+  transform:
+    translateY(0)
+    rotate(-2deg);
 }
 
 
-.item h3{
+/* RAYA ROJA LATERAL */
 
+.item::before{
+  content:"";
+
+  position:absolute;
+
+  left:0;
+  top:0;
+
+  width:5px;
+  height:100%;
+
+  background:#ed1c24;
+
+  box-shadow:
+    0 0 18px
+    rgba(237,28,36,.4);
+}
+
+
+/* TÍTULOS */
+
+.item h3{
   color:#ed1c24;
 
   font-family:'Anton',sans-serif;
 
-  letter-spacing:1px;
+  letter-spacing:2px;
 
-  font-size:1.6rem;
+  font-size:
+    clamp(
+      1.7rem,
+      7vw,
+      2.6rem
+    );
 
+  line-height:1.1;
+
+  text-transform:uppercase;
 }
 
+
+/* DESCRIPCIÓN */
 
 .item p{
+  margin-top:12px;
 
-  margin-top:8px;
+  color:#c5c5c5;
 
-  color:#aaa;
+  font-family:Arial,sans-serif;
+
+  font-size:.9rem;
+
+  font-weight:600;
+
+  letter-spacing:1px;
 
   line-height:1.6;
-
 }
 
+
+/* PALABRAS DESTACADAS */
+
+.item strong{
+  color:#fff;
+}
+
+
+/* CELULAR */
+
+@media(max-width:600px){
+
+  .experiencia{
+    padding:
+      100px 18px
+      120px;
+  }
+
+  .experiencia h2{
+    margin-bottom:60px;
+  }
+
+  .item{
+    margin-bottom:32px;
+
+    padding:
+      30px 25px;
+  }
+
+}
 
 /* =========================
    FOOTER
@@ -1536,11 +1689,13 @@ footer p{
 </section>
 
 
-<!-- LA NOCHE -->
+<!-- =========================
+     LA NOCHE
+========================= -->
 
 <section class="experiencia">
 
-  <h2 class="titulo-papel">
+  <h2>
     LA NOCHE
   </h2>
 
@@ -1552,7 +1707,8 @@ footer p{
     </h3>
 
     <p>
-      DISFRAZ
+      <strong>DISFRAZ.</strong>
+      Esta noche no vienes como siempre.
     </p>
 
   </div>
@@ -1565,9 +1721,8 @@ footer p{
     </h3>
 
     <p>
-      Prepárate para competir
-      por el mejor disfraz
-      de la noche.
+      Prepara tu mejor disfraz.
+      <strong>Habrá una botella para el ganador.</strong>
     </p>
 
   </div>
@@ -1580,28 +1735,13 @@ footer p{
     </h3>
 
     <p>
-      Hasta las 11:30 p. m.
-    </p>
-
-  </div>
-
-
-  <div class="item">
-
-    <h3>
-      + SORPRESAS
-    </h3>
-
-    <p>
-      Halloween Fest Vol. VI
+      Trae lo tuyo.
+      <strong>Descorche libre hasta las 11:30 p. m.</strong>
     </p>
 
   </div>
 
 </section>
-
-
-
 <!-- FINAL -->
 
 <footer>
