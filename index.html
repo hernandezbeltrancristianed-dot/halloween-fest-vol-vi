@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Special+Elite&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Creepster&family=Nosifer&family=Special+Elite&display=swap" rel="stylesheet">
 
 <style>
 
@@ -120,36 +120,40 @@ background-repeat: no-repeat;
 /* HALLOWEEN */
 
 .halloween{
-
   position:relative;
-
   z-index:2;
 
-  font-family:'Anton', sans-serif;
+  font-family:'Nosifer', cursive;
 
   font-size:clamp(
-    4rem,
-    18vw,
-    9rem
+    3.4rem,
+    15vw,
+    7.5rem
   );
 
-  line-height:.85;
-
+  line-height:1;
   letter-spacing:-3px;
 
   color:#ed1c24;
-
   text-transform:uppercase;
 
   text-shadow:
-    3px 3px 0 #620000,
-    0 0 30px rgba(255,0,0,.35);
+    3px 4px 0 #5e0000,
+    0 0 12px rgba(255,0,0,.65),
+    0 0 35px rgba(255,0,0,.25);
+
+  filter:
+    drop-shadow(
+      0 8px 5px
+      rgba(0,0,0,.7)
+    );
 
   animation:
     entradaTitulo 1s ease forwards,
     glitch 6s infinite 2s;
-
 }
+
+
 
 
 /* FEST */
@@ -215,28 +219,33 @@ background-repeat: no-repeat;
 
 /* VOL VI */
 
-.vol{
-
+.vol 
+  {
   z-index:2;
+  position:relative;
 
-  margin-top:15px;
+  margin-top:18px;
 
-  font-family:'Anton',sans-serif;
+  font-family:'Creepster', cursive;
 
   font-size:clamp(
-    2rem,
-    9vw,
-    4rem
+    2.7rem,
+    11vw,
+    5rem
   );
 
   color:#ed1c24;
 
-  transform:rotate(-6deg);
+  letter-spacing:4px;
 
-  letter-spacing:3px;
+  transform:
+    rotate(-6deg)
+    skew(-3deg);
 
+  text-shadow:
+    3px 3px 0 #550000,
+    0 0 15px rgba(255,0,0,.25);
 }
-
 
 /* FECHA */
 
@@ -329,34 +338,45 @@ background-repeat: no-repeat;
 /* MENSAJE */
 
 .mensaje{
-
   z-index:2;
 
-  margin-top:45px;
+  margin-top:38px;
 
-  font-size:.9rem;
+  padding:
+    8px 15px;
+
+  background:
+    rgba(0,0,0,.72);
+
+  border:
+    1px solid rgba(255,255,255,.15);
+
+  font-size:.85rem;
 
   letter-spacing:2px;
 
-  color:#aaa;
+  color:#eee;
 
+  transform:
+    rotate(-1deg);
+
+  backdrop-filter:
+    blur(3px);
 }
 
 
 /* BOTÓN */
 
 .entrar{
-
   z-index:2;
-
   position:relative;
 
   display:inline-block;
 
-  margin-top:15px;
+  margin-top:18px;
 
   padding:
-    18px 38px;
+    20px 48px;
 
   background:#e71920;
 
@@ -366,28 +386,47 @@ background-repeat: no-repeat;
 
   font-family:'Anton',sans-serif;
 
-  font-size:1.3rem;
+  font-size:1.35rem;
 
   letter-spacing:2px;
 
-  transform:rotate(-1deg);
+  transform:
+    rotate(-2deg);
+
+  clip-path:polygon(
+    3% 8%,
+    96% 0,
+    100% 18%,
+    97% 87%,
+    88% 95%,
+    10% 100%,
+    0 83%,
+    2% 25%
+  );
+
+  box-shadow:
+    0 10px 30px
+    rgba(0,0,0,.5);
 
   transition:
     transform .25s,
-    background .25s;
-
+    filter .25s;
 }
-
 
 .entrar:hover{
-
   transform:
     rotate(1deg)
-    scale(1.06);
+    scale(1.07);
 
-  background:#ff2525;
-
+  filter:
+    brightness(1.2);
 }
+
+.entrar:active{
+  transform:
+    scale(.94);
+}
+
 
 
 /* FLECHA */
@@ -406,7 +445,34 @@ background-repeat: no-repeat;
     bajar 1.4s infinite;
 
 }
+.hero{
+  animation:
+    luzHorror 7s infinite;
+}
 
+@keyframes luzHorror{
+
+  0%, 92%, 100%{
+    filter:brightness(1);
+  }
+
+  93%{
+    filter:brightness(.78);
+  }
+
+  94%{
+    filter:brightness(1.08);
+  }
+
+  95%{
+    filter:brightness(.88);
+  }
+
+  96%{
+    filter:brightness(1);
+  }
+
+}
 
 /* =========================
    COUNTDOWN
