@@ -1118,11 +1118,25 @@ background-repeat: no-repeat;
 .experiencia{
   position:relative;
 
-  max-width:900px;
-  margin:auto;
+  width:100%;
+  max-width:none;
+  margin:0;
 
   padding:
     120px 22px 140px;
+
+  min-height:100vh;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,.45),
+      rgba(0,0,0,.75)
+    ),
+    url("assets/images/la-noche-bg.png");
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
 
   overflow:hidden;
 }
@@ -1321,14 +1335,20 @@ background-repeat: no-repeat;
 }
 
 
-/* CELULAR */
+/* =========================
+   LA NOCHE - CELULAR
+========================= */
 
 @media(max-width:600px){
 
   .experiencia{
+    min-height:100svh;
+
     padding:
       100px 18px
       120px;
+
+    background-position:58% center;
   }
 
   .experiencia h2{
