@@ -50,13 +50,17 @@ body{
   padding:40px 20px 80px;
 
   background:
-    radial-gradient(
-      circle at 50% 30%,
-      #260000 0%,
-      #100000 25%,
-      #030303 65%,
-      #000 100%
-    );
+  linear-gradient(
+    to bottom,
+    rgba(0,0,0,.25) 0%,
+    rgba(0,0,0,.15) 45%,
+    rgba(0,0,0,.35) 100%
+  ),
+  url("assets/images/hero-bg.png");
+
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
 
   overflow:hidden;
 }
@@ -97,11 +101,11 @@ body{
   width:400px;
   height:400px;
 
-  background:#b40000;
+ background:#8b0000;
 
   filter:blur(160px);
 
-  opacity:.13;
+ opacity:.18;
 
   border-radius:50%;
 
