@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Halloween Fest Vol. VI</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #050505;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* =========================
+       PORTADA
+    ========================== */
+
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px 20px;
+      position: relative;
+      background:
+        radial-gradient(circle at center, #260000 0%, #090000 35%, #000 75%);
+    }
+
+    .hero h1 {
+      font-size: clamp(3.5rem, 17vw, 8rem);
+      line-height: .8;
+      color: #ff1b1b;
+      letter-spacing: -4px;
+      text-transform: uppercase;
+      text-shadow:
+        3px 3px 0 #4b0000,
+        0 0 25px rgba(255, 0, 0, .35);
+      animation: aparecer 1.2s ease;
+    }
+
+    .fest {
+      margin-top: 15px;
+      font-size: clamp(2.5rem, 12vw, 6rem);
+      font-weight: 900;
+      letter-spacing: 8px;
+    }
+
+    .vol {
+      margin-top: 5px;
+      font-size: clamp(2rem, 9vw, 4rem);
+      color: #ff1b1b;
+      font-weight: 900;
+      transform: rotate(-4deg);
+    }
+
+    .fecha {
+      margin-top: 45px;
+      padding: 12px 25px;
+      background: #eee;
+      color: #080808;
+      font-size: clamp(1.6rem, 8vw, 3rem);
+      font-weight: 900;
+      transform: rotate(-2deg);
+    }
+
+    .hora {
+      margin-top: 20px;
+      font-size: 1rem;
+      letter-spacing: 4px;
+      color: #bbb;
+    }
+
+    .entrar {
+      display: inline-block;
+      margin-top: 45px;
+      padding: 17px 35px;
+      background: #e5161d;
+      color: white;
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      transition: .25s;
+    }
+
+    .entrar:hover {
+      transform: scale(1.07) rotate(-2deg);
+      background: #ff2424;
+    }
+
+    .flecha {
+      position: absolute;
+      bottom: 25px;
+      font-size: 2rem;
+      animation: bajar 1.5s infinite;
+    }
+
+
+    /* =========================
+       COUNTDOWN
+    ========================== */
+
+    .countdown-section {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 70px 20px;
+      text-align: center;
+    }
+
+    .titulo-seccion {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      letter-spacing: 5px;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      width: 100%;
+      max-width: 700px;
+    }
+
+    .tiempo {
+      background: #111;
+      border: 1px solid #333;
+      padding: 25px 5px;
+    }
+
+    .numero {
+      display: block;
+      color: #ff1b1b;
+      font-size: clamp(2rem, 9vw, 4rem);
+      font-weight: 900;
+    }
+
+    .etiqueta {
+      display: block;
+      margin-top: 8px;
+      font-size: .65rem;
+      letter-spacing: 2px;
+      color: #aaa;
+    }
+
+
+    /* =========================
+       ENTRADAS
+    ========================== */
+
+    .entradas {
+      padding: 90px 20px;
+      text-align: center;
+      background: #0a0a0a;
+    }
+
+    .entradas h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+
+    .tickets {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .ticket {
+      width: min(100%, 340px);
+      background: #eee;
+      color: #111;
+      padding: 40px 25px;
+      position: relative;
+    }
+
+    .ticket h3 {
+      font-size: 1.5rem;
+      letter-spacing: 3px;
+    }
+
+    .precio {
+      font-size: 4.5rem;
+      font-weight: 900;
+      color: #e5161d;
+      margin: 15px 0;
+    }
+
+    .ticket p {
+      font-weight: 700;
+    }
+
+
+    /* =========================
+       EXPERIENCIA
+    ========================== */
+
+    .experiencia {
+      padding: 100px 25px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .experiencia h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+    }
+
+    .item {
+      border-bottom: 1px solid #292929;
+      padding: 30px 5px;
+    }
+
+    .item h3 {
+      color: #ff2424;
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .item p {
+      color: #aaa;
+      line-height: 1.6;
+    }
+
+
+    /* =========================
+       FINAL
+    ========================== */
+
+    footer {
+      min-height: 50vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 50px 20px;
+      background: #000;
+    }
+
+    footer h2 {
+      color: #e5161d;
+      font-size: clamp(2.5rem, 12vw, 5rem);
+    }
+
+    footer p {
+      margin-top: 15px;
+      letter-spacing: 4px;
+      color: #aaa;
+    }
+
+
+    /* =========================
+       ANIMACIONES
+    ========================== */
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: scale(.8);
+        filter: blur(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+      }
+    }
+
+    @keyframes bajar {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(10px);
+      }
+    }
+
+
+    /* =========================
+       CELULAR
+    ========================== */
+
+    @media (max-width: 600px) {
+
+      .countdown {
+        gap: 5px;
+      }
+
+      .tiempo {
+        padding: 20px 2px;
+      }
+
+      .etiqueta {
+        font-size: .55rem;
+        letter-spacing: 1px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- PORTADA -->
+
+  <section class="hero">
+
+    <h1>Halloween</h1>
+
+    <div class="fest">
+      FEST
+    </div>
+
+    <div class="vol">
+      VOL. VI
+    </div>
+
+    <div class="fecha">
+      24 · OCT · 26
+    </div>
+
+    <div class="hora">
+      ENTRADA 8:30 PM
+    </div>
+
+    <a href="#countdown" class="entrar">
+      ¿TE ATREVES A ENTRAR?
+    </a>
+
+    <div class="flecha">
+      ↓
+    </div>
+
+  </section>
+
+
+
+  <!-- COUNTDOWN -->
+
+  <section
+    class="countdown-section"
+    id="countdown"
+  >
+
+    <h2 class="titulo-seccion">
+      FALTAN
+    </h2>
+
+    <div class="countdown">
+
+      <div class="tiempo">
+        <span
+          class="numero"
+          id="dias"
+        >
+          00
+        </span>
+
+        <span class="etiqueta">
+          DÍAS
+        </span>
+      </div>
+
+
+      <div class="tiempo">
+
+        <span
+          class="numero"
+          id="horas"
+        >
+          00
+        </span>
+
+        <span class="etiqueta">
+          HRS
+        </span>
+
+      </div>
+
+
+      <div class="tiempo">
+
+        <span
+          class="numero"
+          id="minutos"
+        >
+          00
+        </span>
+
+        <span class="etiqueta">
+          MIN
+        </span>
+
+      </div>
+
+
+      <div class="tiempo">
+
+        <span
+          class="numero"
+          id="segundos"
+        >
+          00
+        </span>
+
+        <span class="etiqueta">
+          SEG
+        </span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ENTRADAS -->
+
+  <section class="entradas">
+
+    <h2>ENTRADAS</h2>
+
+    <div class="tickets">
+
+      <div class="ticket">
+
+        <h3>PREVENTA</h3>
+
+        <div class="precio">
+          $100
+        </div>
+
+        <p>
+          INCLUYE SHOT DE BIENVENIDA
+        </p>
+
+      </div>
+
+
+      <div class="ticket">
+
+        <h3>DÍA DEL EVENTO</h3>
+
+        <div class="precio">
+          $150
+        </div>
+
+        <p>
+          ACCESO GENERAL
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- INFORMACIÓN -->
+
+  <section class="experiencia">
+
+    <h2>
+      LA NOCHE
+    </h2>
+
+
+    <div class="item">
+
+      <h3>
+        DRESS CODE
+      </h3>
+
+      <p>
+        DISFRAZ
+      </p>
+
+    </div>
+
+
+    <div class="item">
+
+      <h3>
+        CONCURSO DE DISFRACES
+      </h3>
+
+      <p>
+        Prepárate para competir por el mejor disfraz de la noche.
+      </p>
+
+    </div>
+
+
+    <div class="item">
+
+      <h3>
+        DESCORCHE LIBRE
+      </h3>
+
+      <p>
+        Disponible hasta las 11:30 PM.
+      </p>
+
+    </div>
+
+
+    <div class="item">
+
+      <h3>
+        + SORPRESAS
+      </h3>
+
+      <p>
+        Halloween Fest Vol. VI.
+      </p>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- FINAL -->
+
+  <footer>
+
+    <h2>
+      HALLOWEEN FEST
+    </h2>
+
+    <p>
+      VOL. VI · 24.10.26
+    </p>
+
+  </footer>
+
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    const fechaEvento =
+      new Date("2026-10-24T20:30:00-06:00").getTime();
+
+
+    function actualizarCountdown() {
+
+      const ahora =
+        new Date().getTime();
+
+      const diferencia =
+        fechaEvento - ahora;
+
+
+      if (diferencia <= 0) {
+
+        document.querySelector(".countdown").innerHTML =
+          "<h2>HOY ES EL DÍA</h2>";
+
+        return;
+
+      }
+
+
+      const dias =
+        Math.floor(
+          diferencia /
+          (1000 * 60 * 60 * 24)
+        );
+
+
+      const horas =
+        Math.floor(
+          (diferencia %
+          (1000 * 60 * 60 * 24)) /
+          (1000 * 60 * 60)
+        );
+
+
+      const minutos =
+        Math.floor(
+          (diferencia %
+          (1000 * 60 * 60)) /
+          (1000 * 60)
+        );
+
+
+      const segundos =
+        Math.floor(
+          (diferencia %
+          (1000 * 60)) /
+          1000
+        );
+
+
+      document.getElementById("dias").textContent =
+        String(dias).padStart(2, "0");
+
+      document.getElementById("horas").textContent =
+        String(horas).padStart(2, "0");
+
+      document.getElementById("minutos").textContent =
+        String(minutos).padStart(2, "0");
+
+      document.getElementById("segundos").textContent =
+        String(segundos).padStart(2, "0");
+
+    }
+
+
+    actualizarCountdown();
+
+    setInterval(
+      actualizarCountdown,
+      1000
+    );
+
+  </script>
+
+
+</body>
+</html>
