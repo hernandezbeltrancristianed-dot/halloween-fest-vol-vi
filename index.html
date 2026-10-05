@@ -1960,53 +1960,170 @@ background-repeat: no-repeat;
 ========================= */
 
 footer{
+  position:relative;
 
-  min-height:50vh;
+  min-height:65svh;
 
   display:flex;
-
   flex-direction:column;
 
   justify-content:center;
-
   align-items:center;
 
   text-align:center;
 
-  padding:60px 20px;
+  padding:
+    100px 20px
+    70px;
 
-  background:#000;
+  background:
+    radial-gradient(
+      circle at 50% 40%,
+      rgba(150,0,0,.20),
+      transparent 38%
+    ),
+    #000;
 
+  overflow:hidden;
 }
 
 
+/* RESPLANDOR */
+
+footer::before{
+  content:"";
+
+  position:absolute;
+
+  width:320px;
+  height:320px;
+
+  background:#8b0000;
+
+  opacity:.12;
+
+  filter:blur(120px);
+
+  border-radius:50%;
+
+  pointer-events:none;
+}
+
+
+/* HALLOWEEN FEST */
+
 footer h2{
+  position:relative;
+  z-index:2;
+
+  max-width:100%;
 
   color:#ed1c24;
 
-  font-family:'Anton',sans-serif;
+  font-family:'Nosifer',cursive;
 
   font-size:
     clamp(
-      3rem,
-      13vw,
-      6rem
+      2.5rem,
+      10vw,
+      5rem
     );
 
+  line-height:1.15;
+
+  letter-spacing:-2px;
+
+  text-shadow:
+    3px 4px 0 #550000,
+    0 0 20px
+    rgba(237,28,36,.25);
 }
 
 
-footer p{
+/* VOL VI + FECHA */
 
-  margin-top:15px;
+footer p{
+  position:relative;
+  z-index:2;
+
+  margin-top:18px;
 
   color:#888;
 
-  letter-spacing:4px;
+  font-family:'Special Elite',serif;
 
+  font-size:.85rem;
+
+  letter-spacing:5px;
 }
 
 
+/* VOL. VI */
+
+footer p:first-of-type{
+  margin-top:30px;
+
+  color:#eee;
+
+  font-family:'Creepster',cursive;
+
+  font-size:
+    clamp(
+      2rem,
+      8vw,
+      3.2rem
+    );
+
+  letter-spacing:4px;
+
+  transform:rotate(-3deg);
+}
+
+
+/* LÍNEA FINAL */
+
+footer::after{
+  content:"NOS VEMOS EL 24 DE OCTUBRE";
+
+  position:absolute;
+
+  bottom:35px;
+
+  color:#444;
+
+  font-family:Arial,sans-serif;
+
+  font-size:.5rem;
+  font-weight:700;
+
+  letter-spacing:3px;
+}
+
+
+/* CELULAR */
+
+@media(max-width:600px){
+
+  footer{
+    min-height:60svh;
+
+    padding:
+      90px 18px
+      80px;
+  }
+
+  footer h2{
+    font-size:
+      clamp(
+        2.2rem,
+        10vw,
+        3.3rem
+      );
+
+    letter-spacing:-1px;
+  }
+
+}
 /* =========================
    ANIMACIONES
 ========================= */
