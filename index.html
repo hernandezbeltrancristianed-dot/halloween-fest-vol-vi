@@ -749,45 +749,119 @@ background-repeat: no-repeat;
 ========================= */
 
 .entradas{
-
-  padding:
-    100px 20px;
-
+  position:relative;
+  padding:110px 20px 130px;
   text-align:center;
 
   background:
+    radial-gradient(
+      circle at 50% 25%,
+      rgba(150,0,0,.18),
+      transparent 35%
+    ),
     linear-gradient(
-      #050505,
-      #0d0000
+      180deg,
+      #050505 0%,
+      #100000 55%,
+      #050505 100%
     );
 
+  overflow:hidden;
 }
 
+
+/* TEXTO PEQUEÑO SUPERIOR */
+
+.entradas::before{
+  content:"ELIGE CÓMO ENTRAR";
+
+  display:block;
+
+  margin-bottom:18px;
+
+  font-family:Arial,sans-serif;
+  font-size:.65rem;
+  font-weight:700;
+
+  letter-spacing:5px;
+
+  color:#777;
+}
+
+
+/* TÍTULO */
 
 .entradas h2{
+  position:relative;
+  z-index:2;
 
-  font-size:2.5rem;
+  display:inline-block;
 
-  margin-bottom:45px;
+  margin-bottom:60px;
 
+  padding:12px 30px;
+
+  background:#ededed;
+  color:#080808;
+
+  font-family:'Special Elite',serif;
+
+  font-size:
+    clamp(
+      2rem,
+      8vw,
+      3.5rem
+    );
+
+  transform:rotate(-2deg);
+
+  clip-path:polygon(
+    2% 7%,
+    17% 2%,
+    32% 6%,
+    48% 0,
+    65% 5%,
+    82% 1%,
+    99% 7%,
+    97% 91%,
+    82% 97%,
+    63% 93%,
+    47% 100%,
+    29% 94%,
+    11% 99%,
+    1% 91%
+  );
+
+  box-shadow:
+    8px 8px 0
+    rgba(0,0,0,.6);
 }
 
 
+/* CONTENEDOR */
+
 .tickets{
+  position:relative;
+  z-index:2;
 
   display:flex;
 
   justify-content:center;
+  align-items:stretch;
 
   flex-wrap:wrap;
 
-  gap:30px;
+  gap:35px;
 
+  max-width:800px;
+
+  margin:auto;
 }
 
 
-.ticket{
+/* TICKET */
 
+.ticket{
   position:relative;
 
   width:min(
@@ -795,56 +869,206 @@ background-repeat: no-repeat;
     350px
   );
 
-  padding:
-    45px 25px;
+  min-height:330px;
+
+  display:flex;
+  flex-direction:column;
+
+  align-items:center;
+  justify-content:center;
+
+  padding:45px 25px;
 
   background:#e9e9e9;
-
   color:#080808;
 
-  transform:rotate(-1deg);
+  transform:rotate(-2deg);
 
+  clip-path:polygon(
+    1% 3%,
+    12% 1%,
+    23% 4%,
+    37% 0,
+    52% 3%,
+    67% 1%,
+    81% 4%,
+    100% 1%,
+    98% 22%,
+    100% 41%,
+    97% 61%,
+    100% 80%,
+    97% 98%,
+    78% 96%,
+    62% 100%,
+    43% 97%,
+    27% 100%,
+    10% 96%,
+    2% 99%,
+    3% 78%,
+    0 58%,
+    3% 39%
+  );
+
+  filter:
+    drop-shadow(
+      0 18px 20px
+      rgba(0,0,0,.5)
+    );
+
+  transition:
+    transform .3s ease;
 }
 
+
+/* PREVENTA */
+
+.ticket:first-child{
+  background:#ededed;
+
+  transform:
+    rotate(-2deg)
+    scale(1.04);
+}
+
+
+/* DÍA DEL EVENTO */
 
 .ticket:nth-child(2){
+  background:#111;
+  color:#eee;
 
-  transform:rotate(1deg);
+  border:
+    1px solid
+    rgba(255,255,255,.12);
 
+  transform:rotate(2deg);
 }
 
+
+/* ENCABEZADO */
 
 .ticket h3{
+  font-family:'Special Elite',serif;
 
-  font-size:1.4rem;
+  font-size:1.3rem;
 
-  letter-spacing:2px;
-
+  letter-spacing:3px;
 }
 
 
-.precio{
+/* PRECIO */
 
-  margin:
-    15px 0;
+.precio{
+  position:relative;
+
+  margin:12px 0 15px;
 
   color:#e71920;
 
   font-family:'Anton',sans-serif;
 
-  font-size:5rem;
+  font-size:
+    clamp(
+      5rem,
+      20vw,
+      7rem
+    );
 
+  line-height:1;
+
+  text-shadow:
+    3px 3px 0
+    rgba(80,0,0,.15);
 }
 
 
-.ticket p{
+/* DESCRIPCIÓN */
 
-  font-size:.9rem;
+.ticket p{
+  max-width:230px;
+
+  font-family:Arial,sans-serif;
+
+  font-size:.78rem;
+  font-weight:800;
 
   line-height:1.5;
 
+  letter-spacing:1px;
 }
 
+
+/* SELLO PREVENTA */
+
+.ticket:first-child::after{
+  content:"SHOT DE BIENVENIDA";
+
+  position:absolute;
+
+  right:-5px;
+  bottom:20px;
+
+  padding:9px 13px;
+
+  background:#e71920;
+  color:white;
+
+  font-family:'Anton',sans-serif;
+
+  font-size:.7rem;
+
+  letter-spacing:1px;
+
+  transform:rotate(-7deg);
+
+  box-shadow:
+    4px 5px 0
+    rgba(0,0,0,.25);
+}
+
+
+/* EFECTO HOVER */
+
+.ticket:hover{
+  transform:
+    rotate(0)
+    scale(1.05);
+}
+
+
+/* CELULAR */
+
+@media(max-width:600px){
+
+  .entradas{
+    padding:
+      90px 18px
+      110px;
+  }
+
+  .entradas h2{
+    margin-bottom:45px;
+  }
+
+  .tickets{
+    gap:35px;
+  }
+
+  .ticket{
+    min-height:300px;
+  }
+
+  .ticket:first-child{
+    transform:
+      rotate(-2deg)
+      scale(1);
+  }
+
+  .precio{
+    font-size:5.5rem;
+  }
+
+}
 
 /* =========================
    LA NOCHE
@@ -1256,8 +1480,9 @@ footer p{
 </section>
 
 
-
-<!-- ENTRADAS -->
+<!-- =========================
+     ENTRADAS
+========================= -->
 
 <section class="entradas">
 
@@ -1265,11 +1490,11 @@ footer p{
     ENTRADAS
   </h2>
 
-
   <div class="tickets">
 
+    <!-- PREVENTA -->
 
-    <div class="ticket">
+    <div class="ticket ticket-preventa">
 
       <h3>
         PREVENTA
@@ -1280,14 +1505,19 @@ footer p{
       </div>
 
       <p>
-        INCLUYE SHOT
-        DE BIENVENIDA
+        PRECIO ESPECIAL DE PREVENTA
       </p>
+
+      <div class="shot">
+        SHOT DE BIENVENIDA INCLUIDO
+      </div>
 
     </div>
 
 
-    <div class="ticket">
+    <!-- DÍA DEL EVENTO -->
+
+    <div class="ticket ticket-evento">
 
       <h3>
         DÍA DEL EVENTO
@@ -1303,11 +1533,9 @@ footer p{
 
     </div>
 
-
   </div>
 
 </section>
-
 
 
 <!-- LA NOCHE -->
